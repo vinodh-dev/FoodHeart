@@ -1,10 +1,12 @@
 import React,{useState  }    from 'react';
-import {  View,  Text,  Image,  TouchableOpacity,  ScrollView,  ImageBackground, Modal
-,ToastAndroid,Platform,AlertIOS,} from 'react-native';
-
+import {  View,  Text,  Image,  TouchableOpacity,  ScrollView,  ImageBackground, Modal,ToastAndroid,Platform,AlertIOS,} from 'react-native';
 import {global} from '../../Styles/global';
 import * as Animatable from 'react-native-animatable';
 import {useSelector} from 'react-redux';
+import {DELIVERY_STATUS} from '../Api/Api'
+
+
+
 
 
 
@@ -41,7 +43,7 @@ form.append('driver_id',getString);
 form.append('order_id', orders_id);
 form.append('status_id','2');
 form.append('msg', statusText1);
-fetch("http://qrweb.co/ecommerce/public/api/updatedeliverystatus", {
+fetch(DELIVERY_STATUS, {
   method: 'POST',
   headers: new Headers({
     'Content-Type': 'multipart/form-data',
@@ -75,7 +77,7 @@ const displayStatus2 =()=>{
   form.append('order_id', orders_id);
   form.append('status_id','5'); 
   form.append('msg', statusText2);
-  fetch("http://qrweb.co/ecommerce/public/api/updatedeliverystatus", {
+  fetch(DELIVERY_STATUS, {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'multipart/form-data',

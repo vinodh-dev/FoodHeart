@@ -16,19 +16,21 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {global} from '../../Styles/global';
 import {ScrollView} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
+import {CHANGE_PASSWORD } from '../Api/Api'
 
-const baseUrl = 'http://qrweb.co/ecommerce/public/api/driverchangepassword';
+
+//const baseUrl = 'http://qrweb.co/ecommerce/public/api/driverchangepassword';
 
 const SignupSchema = yup.object({
   driver_id: yup.string().required('Required'),
   oldpassword: yup
     .string()
     .required('Required')
-    .min(8, 'It must be 8 Characters'),
+    .min(3, 'It must be 8 Characters'),
   newpassword: yup
     .string()
     .required('Required')
-    .min(8, 'It must be 8 Characters'),
+    .min(3, 'It must be 8 Characters'),
 });
 
 export default function ChangePassword(props) {
@@ -132,7 +134,7 @@ const successAlert=()=>{
                       form.append('driver_id', values.driver_id);
                       form.append('oldpassword', values.oldpassword);
                       form.append('newpassword', values.newpassword);
-                      fetch(baseUrl, {
+                      fetch(CHANGE_PASSWORD, {
                         method: 'POST',
                         headers: new Headers({
                           'Content-Type': 'multipart/form-data',

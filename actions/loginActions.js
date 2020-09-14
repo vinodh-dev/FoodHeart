@@ -1,4 +1,5 @@
 import {LOGIN_FAIL, LOGIN_REQ, LOGIN_SUCCESS} from './Constants';
+import {LOGIN_API } from '../Screens/Api/Api'
 
 export const loginAction = (values) => (dispatch) => {
   try {
@@ -6,7 +7,7 @@ export const loginAction = (values) => (dispatch) => {
     var form = new FormData();
     form.append('driver_id', values.driver_id);
     form.append('password', values.password);
-       fetch('http://qrweb.co/ecommerce/public/api/driverlogin', {
+       fetch(LOGIN_API, {
         method: 'POST',
          headers: new Headers({
         'Content-Type': 'multipart/form-data',

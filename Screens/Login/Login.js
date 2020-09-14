@@ -1,3 +1,5 @@
+///login
+
 import React, {useState, useEffect, useRef} from 'react';
 import {
   View,
@@ -23,7 +25,7 @@ import {loginAction} from '../../actions/loginActions';
 
 const SignupSchema = yup.object({
   driver_id: yup.string().required('Required'),
-  password: yup.string().required('Required').min(8, 'It must be 8 Characters'),
+  password: yup.string().required('Required').min(3, 'It must be 8 Characters'),
 });
 export default function Login({navigation}) {
   const errorMessgae = useSelector((state) => state.loginDetails);

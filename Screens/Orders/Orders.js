@@ -14,9 +14,9 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //import {ScrollView} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
+import {ASSIGNED_ORDER} from '../Api/Api'
 
-
-const baseUrl = 'http://qrweb.co/ecommerce/public/api/assignedorder';
+//const baseUrl = 'http://qrweb.co/ecommerce/public/api/assignedorder';
 
 export default function Orders({navigation}) {
   const refNumber = useSelector((state) => state.loginDetails);
@@ -33,7 +33,7 @@ export default function Orders({navigation}) {
     var FormData = require('form-data');
     var form = new FormData();
     form.append('driver_id', getString);
-    fetch(baseUrl, {
+    fetch(ASSIGNED_ORDER, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'multipart/form-data',
@@ -57,7 +57,7 @@ return ()=>{
 //
 
 }
-  }, [  orders  ]);
+  }, [orders]);
 
   return (
     

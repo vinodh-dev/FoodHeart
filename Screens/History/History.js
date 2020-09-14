@@ -13,8 +13,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useSelector} from 'react-redux';
+import {  HISTORY_API} from '../Api/Api'
 
-const base = 'http://qrweb.co/ecommerce/public/api/driver_orderhistory';
+
 
 export default function History({navigation}) {
   const refNumb = useSelector((state) => state.loginDetails);
@@ -22,13 +23,13 @@ export default function History({navigation}) {
   const getDriverId = loginData.map((er) => er.refno);
   let getString = getDriverId.toString();
   const [load, setLoad] = useState(true);
-  const [historyData, sethistoryData] = useState([]);
+  const [historyData, sethistoryData] = useState([]); 
 
   useEffect(() => {
     var FormData = require('form-data');
     var form = new FormData();
     form.append('driver_id', getString);
-    fetch(base, {
+    fetch(HISTORY_API, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'multipart/form-data',
