@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
   Keyboard,
   Image,
-  TextInput,
+  TextInput,  
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
