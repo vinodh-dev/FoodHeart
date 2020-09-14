@@ -40,6 +40,7 @@ export default function Login({navigation}) {
     }, 1000);
 
     return () => {
+      //test
       clearInterval(() => {
         isLoaded(true);
         setSendData(false)
